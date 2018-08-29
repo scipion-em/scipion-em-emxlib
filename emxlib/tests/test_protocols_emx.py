@@ -1,7 +1,10 @@
 # ***************************************************************************
-# * Authors:     Roberto Marabini (roberto@cnb.csic.es)
-# *              J.M. De la Rosa Trevin (jmdelarosa@cnb.csic.es)
 # *
+# * Authors:     Roberto Marabini (roberto@cnb.csic.es) [1]
+# *              J.M. De la Rosa Trevin (delarosatrevin@scilifelab.se) [2]
+# *
+# * [1] SciLifeLab, Stockholm University
+# * [2] Unidad de  Bioinformatica of Centro Nacional de Biotecnologia , CSIC
 # *
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -20,7 +23,7 @@
 # *
 # *  All comments concerning this program package may be sent to the
 # *  e-mail address 'scipion@cnb.csic.es'
-# ***************************************************************************/
+# ***************************************************************************
 
 import os
 from itertools import izip
@@ -28,8 +31,8 @@ from itertools import izip
 import pyworkflow.tests as tests
 from pyworkflow.em.data import SetOfCoordinates, SetOfMicrographs
 from pyworkflow.em.protocol import ProtImportMicrographs, ProtImportParticles
-from pyworkflow.em.constants import ALIGN_2D
-from pyworkflow.em.packages.emxlib import ProtEmxExport
+
+from emxlib.protocols import ProtEmxExport
 
 
 class TestEmxBase(tests.BaseTest):
@@ -126,14 +129,15 @@ class TestEmxBase(tests.BaseTest):
         protEmxImport = self.newProtocol(ProtImportParticles,
                                          objLabel='emx: import alignment',
                                          importFrom=ProtImportParticles.IMPORT_FROM_EMX,
-                                         alignType=0,#ALIGN2D
+                                         alignType=0,  # ALIGN2D
                                          emxFile=emxFn,
                                          samplingRate=1.,
                                          amplitudeContrast=2.,
                                          sphericalAberration=0.1,
                                          voltage=200)
         self.launchProtocol(protEmxImport)
-        self.assertIsNotNone(protEmxImport.outputParticles, "There was a problem with the 'emx: import alignment' outputParticles")
+        self.assertIsNotNone(protEmxImport.outputParticles,
+                             "There was a problem with the 'emx: import alignment' outputParticles")
             
     def test_particlesReconstruction(self):
         """ Import an EMX file with particles and alignment information.
@@ -142,12 +146,12 @@ class TestEmxBase(tests.BaseTest):
         protEmxImport = self.newProtocol(ProtImportParticles,
                                          objLabel='emx: import projection',
                                          importFrom=ProtImportParticles.IMPORT_FROM_EMX,
-                                         alignType=2,#PROJ
+                                         alignType=2,  # PROJ
                                          emxFile=emxFn,
                                          samplingRate=1.,
                                          amplitudeContrast=2.,
                                          sphericalAberration=0.1,
                                          voltage=200)
         self.launchProtocol(protEmxImport)
-        self.assertIsNotNone(getattr(protEmxImport, 'outputParticles', None), "There was a problem with the 'emx: import projection' outputParticles")
-
+        self.assertIsNotNone(getattr(protEmxImport, 'outputParticles', None),
+                             "There was a problem with the 'emx: import projection' outputParticles")

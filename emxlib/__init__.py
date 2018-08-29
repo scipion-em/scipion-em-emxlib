@@ -1,8 +1,8 @@
 # **************************************************************************
 # *
-# * Authors:     J.M. de la Rosa Trevin (jmdelarosa@cnb.csic.es)
+# * Authors:     J.M. De la Rosa Trevin (delarosatrevin@scilifelab.se)
 # *
-# * Unidad de  Bioinformatica of Centro Nacional de Biotecnologia , CSIC
+# * SciLifeLab, Stockholm University
 # *
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -23,14 +23,21 @@
 # *  e-mail address 'scipion@cnb.csic.es'
 # *
 # **************************************************************************
-"""
-This sub-module contains all code related to EMX. 
-Basically two files:
 
-emx.py : which is the EMX library provided at: 
-headers.py : which provides conversions between EMObjects and EMX objects.
-"""
-from convert import importData, exportData
-#TODO: why this assimetry: EmxImport, ProtEmxExport
-from dataimport import EmxImport, ProtEmxExport
-from viewer import EMXViewer
+import pyworkflow.em
+
+_logo = "emx_logo.jpg"
+_references = ['Marabini2016']
+
+
+class Plugin(pyworkflow.em.Plugin):
+    _homeVar = 'TEST'
+    _pathVars = ['TEST']
+    _supportedVersions = ['1.0']
+
+    @classmethod
+    def _defineVariables(cls):
+        cls._defineEmVar('TEST', '.')
+
+
+pyworkflow.em.Domain.registerPlugin(__name__)

@@ -1,9 +1,9 @@
+# coding: latin-1
 # **************************************************************************
 # *
-# * Authors:     J.M. de la Rosa Trevin (jmdelarosa@cnb.csic.es)
-# *              Roberto Marabini       (roberto@cnb.csic.es)
+# * Authors:     J.M. De la Rosa Trevin (delarosatrevin@scilifelab.se) [1]
 # *
-# * Unidad de  Bioinformatica of Centro Nacional de Biotecnologia , CSIC
+# * [1] SciLifeLab, Stockholm University
 # *
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -25,29 +25,16 @@
 # *
 # **************************************************************************
 """
-This module implement the wrappers around xmipp_showj
-visualization program.
+@article{Marabini2016,
+title = "The Electron Microscopy eXchange (EMX) initiative",
+journal = "JSB",
+volume = "194",
+number = "2",
+pages = "156 - 163",
+year = "2016",
+doi = "http://dx.doi.org/10.1016/j.jsb.2016.02.008",
+url = "http://www.sciencedirect.com/science/article/pii/S1047847716300235",
+author = "Roberto Marabini and Steven J. Ludtke and Stephen C. Murray and Wah Chiu and Jose M. de la Rosa-Trevin and Ardan Patwardhan and J. Bernard Heymann and Jose M. Carazo",
+}
+
 """
-from pyworkflow.viewer import TextView
-from pyworkflow.em.viewer import DataView
-from pyworkflow.viewer import Viewer, DESKTOP_TKINTER, WEB_DJANGO
-from dataimport import ProtEmxExport
-
-
-class EMXViewer(Viewer):
-    """ Class to visualize Relion protocols """
-    _environments = [DESKTOP_TKINTER, WEB_DJANGO]
-    _targets = [ProtEmxExport]
-    _label = 'viewer emx'
-    
-    def __init__(self, **args):
-        Viewer.__init__(self, **args)
-
-    def visualize(self, obj, **args):
-        data = self.protocol._getPath('emxData/data.mrc')
-        DataView(data).show()
-        
-        # text view doesn't work now.
-        
-#         fn = self.protocol._getPath('emxData/data.emx')
-#         self.textView([fn])    
