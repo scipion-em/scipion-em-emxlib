@@ -28,6 +28,7 @@
 
 import pyworkflow.protocol.params as params
 from pyworkflow.em.protocol import EMProtocol, RELATION_CTF
+from pyworkflow.utils.path import join, exists
 
 from emxlib.constants import *
 
@@ -135,14 +136,13 @@ class ProtEmxExport(EMProtocol):
         errors = []
         return errors
 
-    def _citations(self):
-        cites = []
-        return cites
-
     def _summary(self):
         summary = []
+        fname = join(self._getPath('emxData'), self.outputPrefix.get() + '.emx')
+        if exists(fname):
+            summary.append('Exported %s to %s' % (
+                self._exportTypes[self.inputType.get()], fname))
         return summary
 
     def _methods(self):
         return self._summary()
-        # summary is quite explicit and serve as methods

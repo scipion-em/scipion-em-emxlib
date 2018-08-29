@@ -47,9 +47,7 @@ XmippProtReconstructFourier = importFromPlugin('xmipp3.protocols', 'XmippProtRec
 
 
 class TestEmxWeb(tests.BaseTest):
-    """test emx web page
-    scipion test tests.em.workflows.test_workflow_emx
-    """
+    """test emx web page """
     @classmethod
     def setUpClass(cls):
         tests.setupTestProject(cls)

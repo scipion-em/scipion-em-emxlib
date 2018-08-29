@@ -458,8 +458,8 @@ HEADER = """<%(ROOTNAME)s version="%(VERSION)s">
   -->
 """ % globals()
   
-EMXSCHEMA10 = 'https://raw.githubusercontent.com/biocompwebs/scipion/v1.0/pyworkflow/em/packages/emxlib/emx.xsd'
-EMXSCHEMA11 = 'https://raw.githubusercontent.com/biocompwebs/scipion/v1.0/pyworkflow/em/packages/emxlib/emx_11.xsd'
+EMXSCHEMA10 = 'https://raw.githubusercontent.com/scipion-em/scipion-em-emxlib/devel/emxlib/emx.xsd'
+EMXSCHEMA11 = 'https://raw.githubusercontent.com/scipion-em/scipion-em-emxlib/devel/emxlib/emx_11.xsd'
 
 
 class ValidateError(Exception):
@@ -794,4 +794,3 @@ def validateSchema(filename, schema_file=None):
             # print "message", message
             raise ValidateError(ERR_VALIDATION_WRONG, message)
     return p.returncode, stdout[:answerSize], stderr[:answerSize]
-
