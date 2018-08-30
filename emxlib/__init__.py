@@ -31,13 +31,11 @@ _references = ['Marabini2016']
 
 
 class Plugin(pyworkflow.em.Plugin):
-    _homeVar = 'TEST'
-    _pathVars = ['TEST']
-    _supportedVersions = ['1.0']
 
     @classmethod
-    def _defineVariables(cls):
-        cls._defineEmVar('TEST', '.')
+    def validateInstallation(cls):
+        # there are no binaries for this plugin
+        return []
 
 
 pyworkflow.em.Domain.registerPlugin(__name__)

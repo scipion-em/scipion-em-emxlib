@@ -26,6 +26,8 @@
 # *
 # **************************************************************************
 
+import os
+
 import pyworkflow.protocol.params as params
 from pyworkflow.em.protocol import EMProtocol, RELATION_CTF
 from pyworkflow.utils.path import join, exists
@@ -83,7 +85,7 @@ class ProtEmxExport(EMProtocol):
                       help="Select how you want to export the particles binary file.\n"
                            "*single stack*: write all particles into a single stack.\n"
                            "*one stack per micrograph*: create one stack with particles"
-                           "   beloging to the same micrograph.")
+                           " beloging to the same micrograph.")
 
         form.addParam('ctfEstimation', params.RelationParam,
                       allowsNull=True,
@@ -138,7 +140,8 @@ class ProtEmxExport(EMProtocol):
 
     def _summary(self):
         summary = []
-        fname = join(self._getPath('emxData'), self.outputPrefix.get() + '.emx')
+        fname = os.path.abspath(join(self._getPath('emxData'),
+                                     self.outputPrefix.get() + '.emx'))
         if exists(fname):
             summary.append('Exported %s to %s' % (
                 self._exportTypes[self.inputType.get()], fname))
