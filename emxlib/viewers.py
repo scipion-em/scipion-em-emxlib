@@ -26,7 +26,7 @@
 # *
 # **************************************************************************
 
-from pyworkflow.viewer import TextView
+import pyworkflow.gui.text as text
 from pyworkflow.em.viewer import DataView
 from pyworkflow.viewer import Viewer, DESKTOP_TKINTER, WEB_DJANGO
 
@@ -45,8 +45,7 @@ class EMXViewer(Viewer):
     def visualize(self, obj, **args):
         data = self.protocol._getPath('emxData/data.mrc')
         DataView(data).show()
-        
-        # text view doesn't work now.
-        
-#         fn = self.protocol._getPath('emxData/data.emx')
-#         self.textView([fn])    
+
+        # open EMX file in web browser
+        fn = self.protocol._getPath('emxData/data.emx')
+        text._open_cmd(fn, self.getTkRoot())

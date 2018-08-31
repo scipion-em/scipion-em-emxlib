@@ -33,6 +33,7 @@ from pyworkflow.em.protocol import EMProtocol, RELATION_CTF
 from pyworkflow.utils.path import join, exists
 
 from emxlib.constants import *
+from emxlib.convert import exportData
 
 
 
@@ -117,7 +118,6 @@ class ProtEmxExport(EMProtocol):
         micsId is only passed to force redone of this step
         if micrographs change.
         """
-        from emxlib.convert import exportData
         emxDir = self._getPath('emxData')
         xmlFile = self.outputPrefix.get() + '.emx'
 
