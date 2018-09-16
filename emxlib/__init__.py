@@ -26,7 +26,7 @@
 
 import pyworkflow.em
 
-_logo = "emx_logo.jpg"
+_logo = "emx_logo.png"
 _references = ['Marabini2016']
 
 
