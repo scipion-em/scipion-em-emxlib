@@ -24,18 +24,42 @@
 # *
 # **************************************************************************
 
+import os
 import pyworkflow.em
+from pyworkflow.utils import Environ
+from emxlib.constants import EMXLIB_HOME
+from emxlib.utils import *
+
 
 _logo = "emx_logo.png"
 _references = ['Marabini2016']
 
 
 class Plugin(pyworkflow.em.Plugin):
+    _homeVar = EMXLIB_HOME
+    _pathVars = []
 
     @classmethod
-    def validateInstallation(cls):
-        # there are no binaries for this plugin
-        return []
+    def _defineVariables(cls):
+        cls._defineEmVar(EMXLIB_HOME, 'emx_export-1.0.0')
+
+    @classmethod
+    def getEnviron(cls):
+        """ Setup the environment variables needed to launch emx export. """
+        environ = Environ(os.environ)
+
+        environ.update({
+            'PATH': Plugin.getHome(),
+            'LD_LIBRARY_PATH': str.join(cls.getHome(), 'emxlib')
+                               + ":" + cls.getHome(),
+        }, position=Environ.BEGIN)
+
+        return environ
+
+    @classmethod
+    def defineBinaries(cls, env):
+        """ Define required binaries in the given Environment. """
+        pass
 
 
 pyworkflow.em.Domain.registerPlugin(__name__)
