@@ -29,6 +29,8 @@ This file contains constants related to EMX protocols
 
 from collections import OrderedDict
 
+# we declarate global constants to multiple usage
+EMXLIB_HOME = 'EMXLIB_HOME'
 
 # Mapping between form parameters and EMX tags
 PARAM_DICT = OrderedDict([
