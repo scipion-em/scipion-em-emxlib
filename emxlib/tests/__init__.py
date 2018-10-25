@@ -25,6 +25,6 @@
 # **************************************************************************
 
 from test_protocols_emx import TestEmxBase
-from test_protocols_export_particles import TestExportBase, \
-    TestExportParticlesEMX
-from test_workflow_emx import TestEmxWeb
+from test_protocols_export_particles import (TestExportBase,
+                                             TestExportParticlesEMX)
+#from test_workflow_emx import TestEmxWeb
