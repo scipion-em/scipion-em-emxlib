@@ -31,8 +31,8 @@ from collections import OrderedDict
 
 import pyworkflow.object as pwobj
 import pyworkflow.utils as pwutils
-from pyworkflow.em.constants import ALIGN_NONE, ALIGN_PROJ
-from pyworkflow.em.convert import ImageHandler, NO_INDEX
+from pyworkflow.em.constants import ALIGN_NONE, ALIGN_PROJ, NO_INDEX
+from pyworkflow.em.convert import ImageHandler
 from pyworkflow.em.data import (Micrograph, CTFModel, Particle, 
                                 Coordinate, Transform,
                                 SetOfMicrographs, SetOfCoordinates, 

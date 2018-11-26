@@ -27,7 +27,7 @@
 # **************************************************************************
 
 import pyworkflow.gui.text as text
-from pyworkflow.em.viewer import DataView
+from pyworkflow.em.viewers import DataView
 from pyworkflow.viewer import Viewer, DESKTOP_TKINTER, WEB_DJANGO
 
 from emxlib.protocols import ProtEmxExport
