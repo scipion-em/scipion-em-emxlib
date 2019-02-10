@@ -1,2 +1,2 @@
-# scipion-em-emxlib (after viewers and converts refactorization)
+# scipion-em-emxlib
 Plugin to use Emxlib programs within the Scipion framework
