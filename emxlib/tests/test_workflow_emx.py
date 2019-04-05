@@ -51,7 +51,8 @@ class TestEmxWeb(tests.BaseTest):
     @classmethod
     def setUpClass(cls):
         tests.setupTestProject(cls)
-        cls.baseUrl = "http://i2pc.cnb.csic.es/emx/resourcesEmx/Tests/"
+        # cls.baseUrl = "http://i2pc.cnb.csic.es/emx/resourcesEmx/Tests/"
+        cls.baseUrl = "http://heisenberg.cnb.csic.es:8080/emx/resourcesEmx/Tests/"
 
     def downloadFile(self, filename):
         outFile  = self.proj.getTmpPath(filename)
