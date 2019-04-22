@@ -4,7 +4,7 @@ EMXlib plugin
 
 This plugin allows to import metadata to and from EMX format
 
-Electron Microscopy eXchange (EMX) initiative was launched at the 2012 Instruct Image Processing Center Developer Workshop with the intention of developing a first set of standard conventions for the interchange of information for single-particle analysis (see ` <http://heisenberg.cnb.csic.es:8080/emx/LoadHome.htm>`_ and `<https://www.ncbi.nlm.nih.gov/pubmed/26873784>`_ for details).
+Electron Microscopy eXchange (EMX) initiative was launched at the 2012 Instruct Image Processing Center Developer Workshop with the intention of developing a first set of standard conventions for the interchange of information for single-particle analysis (see `URL <http://heisenberg.cnb.csic.es:8080/emx/LoadHome.htm>`_ and `<https://www.ncbi.nlm.nih.gov/pubmed/26873784>`_ for details).
 
 
 ===================
@@ -61,7 +61,7 @@ Protocols
 Examples
 ========
 
-See URL ` <http://heisenberg.cnb.csic.es:8080/emx/LoadHome.htm>`_
+See `URL <http://heisenberg.cnb.csic.es:8080/emx/LoadHome.htm>`_
 
 ===============
 Buildbot status
