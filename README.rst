@@ -69,9 +69,9 @@ Buildbot status
 
 Status devel version: 
 
-.. image:: http://arquimedes.cnb.csic.es:9980/badges/emxlib_devel.svg
+.. image:: http://scipion-test.cnb.csic.es:9980/badges/emxlib_devel.svg
 
 Status production version: 
 
-.. image:: http://arquimedes.cnb.csic.es:9980/badges/emxlib_prod.svg
+.. image:: http://scipion-test.cnb.csic.es:9980/badges/emxlib_prod.svg
 
