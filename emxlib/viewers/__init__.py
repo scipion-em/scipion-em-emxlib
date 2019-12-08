@@ -24,4 +24,4 @@
 # *
 # **************************************************************************
 
-from emxlib_viewers import EMXViewer
+from .emxlib_viewers import EMXViewer

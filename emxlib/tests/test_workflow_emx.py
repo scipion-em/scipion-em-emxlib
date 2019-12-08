@@ -25,24 +25,26 @@
 # *  All comments concerning this program package may be sent to the
 # *  e-mail address 'scipion@cnb.csic.es'
 # ***************************************************************************/
+try:
+    from itertools import izip
+except:
+    izip = zip
 
-from itertools import izip
-import urllib
+import urllib.request
 import os
 
 import pyworkflow.tests as tests
-from pyworkflow.em.protocol import ProtImportParticles
-from pyworkflow.em.protocol.protocol_sets import ProtSplitSet, ProtUnionSet
-from pyworkflow.em.convert import ImageHandler
-from pyworkflow.utils import importFromPlugin
+from pwem.protocols import ProtImportParticles, ProtSplitSet, ProtUnionSet
+from pwem.convert import ImageHandler
+from pwem import Domain
 
 from emxlib.protocols import ProtEmxExport
 
 
-XmippProtExtractParticles = importFromPlugin('xmipp3.protocols', 'XmippProtExtractParticles')
-XmippProtFilterParticles = importFromPlugin('xmipp3.protocols', 'XmippProtFilterParticles')
-XmippProtApplyAlignment = importFromPlugin('xmipp3.protocols', 'XmippProtApplyAlignment')
-XmippProtReconstructFourier = importFromPlugin('xmipp3.protocols', 'XmippProtReconstructFourier')
+XmippProtExtractParticles = Domain.importFromPlugin('xmipp3.protocols', 'XmippProtExtractParticles')
+XmippProtFilterParticles = Domain.importFromPlugin('xmipp3.protocols', 'XmippProtFilterParticles')
+XmippProtApplyAlignment = Domain.importFromPlugin('xmipp3.protocols', 'XmippProtApplyAlignment')
+XmippProtReconstructFourier = Domain.importFromPlugin('xmipp3.protocols', 'XmippProtReconstructFourier')
 
 
 
@@ -57,7 +59,7 @@ class TestEmxWeb(tests.BaseTest):
     def downloadFile(self, filename):
         outFile  = self.proj.getTmpPath(filename)
         url = self.baseUrl + self.url
-        urllib.urlretrieve(url + filename, outFile)
+        urllib.request.urlretrieve(url + filename, outFile)
         return outFile
 
     def test_coordinate1(self):

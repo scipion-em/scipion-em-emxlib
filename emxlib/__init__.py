@@ -24,8 +24,7 @@
 # *
 # **************************************************************************
 
-import os
-import pyworkflow.em
+import pwem
 from pyworkflow.utils import Environ
 from emxlib.constants import EMXLIB_HOME
 from emxlib.utils import *
@@ -35,7 +34,7 @@ _logo = "emx_logo.png"
 _references = ['Marabini2016']
 
 
-class Plugin(pyworkflow.em.Plugin):
+class Plugin(pwem.Plugin):
     _homeVar = EMXLIB_HOME
     _pathVars = []
 
@@ -62,4 +61,4 @@ class Plugin(pyworkflow.em.Plugin):
         pass
 
 
-pyworkflow.em.Domain.registerPlugin(__name__)
+pwem.Domain.registerPlugin(__name__)

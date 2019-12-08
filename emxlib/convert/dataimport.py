@@ -29,7 +29,7 @@
 from os.path import join, dirname, exists
 from collections import OrderedDict
 
-from pyworkflow.em.constants import ALIGN_NONE
+from pwem.constants import ALIGN_NONE
 
 import emxlib.utils as utils
 from emxlib.constants import *
@@ -96,7 +96,7 @@ class EmxImport():
         """
         prot = self.protocol
         acquisition = prot.getAcquisition()
-        from convert import importData
+        from .convert import importData
         #emxFile=self._getRelPathExecutionDir(emxFile)
         importData(prot, self._emxFile, prot._getExtraPath(),
                    acquisition, prot.samplingRate.get(), self.copyOrLink,

@@ -24,4 +24,4 @@
 # *
 # **************************************************************************
 
-from protocol_export import ProtEmxExport
+from .protocol_export import ProtEmxExport

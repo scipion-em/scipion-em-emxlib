@@ -33,7 +33,6 @@ a modified version of this file under its original name.
 """
 
 
-import os
 import sys
 try:
     import collections
@@ -186,17 +185,17 @@ class EmxObject:
     def iterAttributes(self):
         """Returns list with valid keys (attribute names) 
            and values for this class. Primary keys are ignored"""
-        return self.dictAttributes.iteritems()
+        return self.dictAttributes.items()
 
     def iterPrimaryKeys(self):
         """Returns list with valid primary keys (attribute names) 
         and values for this class"""
-        return self.dictPrimaryKeys.iteritems()
+        return self.dictPrimaryKeys.items()
 
     def iterForeignKeys(self):
         """Returns list with valid primary keys (attribute names) 
         and values for this class"""
-        return self.dictForeignKeys.iteritems()
+        return self.dictForeignKeys.items()
 
     def __eq__(self, other):
         """ If the primary keys of two objects are identical 
@@ -226,9 +225,9 @@ class EmxObject:
         out += self._pprintPK(printNone)
         #foreign key
         if len(self.dictForeignKeys) and\
-               self.dictForeignKeys[self.dictForeignKeys.keys()[0]]:
+               self.dictForeignKeys[list(self.dictForeignKeys.keys())[0]]:
             out += "Foreign keys:\n  "
-            for key, value in self.dictForeignKeys.iteritems():
+            for key, value in self.dictForeignKeys.items():
                 if (value != None) or printNone:
                     out += "%s -> " % key
                     if value is None:
@@ -387,7 +386,7 @@ class EmxData():
         return len(self.mapObjectPK)
 
     def __iter__(self):
-        for node, nodelist in self.objLists.iteritems():
+        for node, nodelist in self.objLists.items():
             for subnode in nodelist:
                 yield subnode
 
@@ -397,7 +396,7 @@ class EmxData():
 
     def __str__(self):
         partStr=""
-        for k, v in self.objLists.iteritems():
+        for k, v in self.objLists.items():
             if len(v):
                 partStr += "\n****\n%sS\n****\n"% k.upper()
             for obj in v:
@@ -575,7 +574,7 @@ class EmxXmlMapper():
         # turn it into an iterator
         context = iter(context)
         # get the root element
-        event, root = context.next()
+        event, root = next(context)
         
         # self.classObject = globals()['Emx'+element]
         doItPK = True
@@ -770,7 +769,7 @@ def validateSchema(filename, schema_file=None):
     # no xerces available, let us try xmlint
     ######
     if p.returncode != 0:
-        print "validating with xmllint"
+        print("validating with xmllint")
         if schema_file is None:
             _schema = EMXSCHEMA10
         else:
