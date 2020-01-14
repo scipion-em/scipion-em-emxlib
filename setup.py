@@ -160,4 +160,7 @@ setup(
     #        'sample=sample:main',
     #    ],
     #},
+    entry_points={
+                'pyworkflow.plugin': 'emxlib = emxlib'
+            },
 )

@@ -23,7 +23,7 @@
 # *  e-mail address 'scipion@cnb.csic.es'
 # *
 # **************************************************************************
-
+import os
 import pwem
 from pyworkflow.utils import Environ
 from emxlib.constants import EMXLIB_HOME
@@ -60,5 +60,3 @@ class Plugin(pwem.Plugin):
         """ Define required binaries in the given Environment. """
         pass
 
-
-pwem.Domain.registerPlugin(__name__)
