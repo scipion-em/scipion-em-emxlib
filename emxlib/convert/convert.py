@@ -32,7 +32,7 @@ from collections import OrderedDict
 import pyworkflow.object as pwobj
 import pyworkflow.utils as pwutils
 from pwem.constants import ALIGN_NONE, ALIGN_PROJ, NO_INDEX
-from pwem.convert import ImageHandler
+from pwem.emlib.image import ImageHandler
 from pwem.objects import (Micrograph, CTFModel, Particle,
                                 Coordinate, Transform,
                                 SetOfMicrographs, SetOfCoordinates, 
