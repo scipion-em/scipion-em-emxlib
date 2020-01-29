@@ -81,7 +81,7 @@ class EmxImport():
         if exists(self._emxFile):
             self._loadEmxInfo()
 
-            for k, v in PARAM_DICT.iteritems():
+            for k, v in PARAM_DICT.items():
                 # Read from the EMX files the values and fill acquisition
                 if self.object.get(v) is not None:
                     acquisitionDict[k] = self.object.get(v)
