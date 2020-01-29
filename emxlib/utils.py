@@ -489,7 +489,7 @@ class EmxXmlMapper():
         
         # write primary key
         xmlString = r"  <%s" % object._name
-        for key, value in object.dictPrimaryKeys.iteritems():
+        for key, value in object.dictPrimaryKeys.items():
             if value is None:
                 continue
             xmlString += ' %(key)s="%(value)s"' % ({'key':key, 'value':str(value)})
@@ -541,7 +541,7 @@ class EmxXmlMapper():
                object.dictForeignKeys[object.dictForeignKeys.keys()[0]]:
             pointedObject = object.dictForeignKeys[object.dictForeignKeys.keys()[0]]
             xmlString += "    <%s" % pointedObject._name
-            for key, value in pointedObject.dictPrimaryKeys.iteritems():
+            for key, value in pointedObject.dictPrimaryKeys.items():
                 if value is None:
                     continue
                 xmlString += ' %(key)s="%(value)s"' % ({'key':key, 'value':str(value)})
@@ -710,7 +710,7 @@ class EmxXmlMapper():
                          , '</t31>\n    ':'</t31> '
                          , '</t32>\n    ':'</t32> '
                          , '</t33>\n    ':'</t33> '
-                         }.iteritems():
+                         }.items():
                 text = text.replace(i, j)
             text = text.replace('<comment>','<!--') 
             text = text.replace('</comment>','-->')
