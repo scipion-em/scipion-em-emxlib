@@ -35,7 +35,7 @@ import os
 
 import pyworkflow.tests as tests
 from pwem.protocols import ProtImportParticles, ProtSplitSet, ProtUnionSet
-from pwem.convert import ImageHandler
+from pwem.emlib.image import ImageHandler
 from pwem import Domain
 
 from emxlib.protocols import ProtEmxExport
