@@ -11,7 +11,7 @@ Electron Microscopy eXchange (EMX) initiative was launched at the 2012 Instruct 
 Install this plugin
 ===================
 
-You will need to use `2.0.0 <https://github.com/I2PC/scipion/releases/tag/v2.0>`_ version of Scipion to run these protocols. To install the plugin, you have two options:
+You will need to use `3.0.0 <https://scipion-em.github.io/docs/release-3.0.0/docs/scipion-modes/how-to-install.html>`_ version of Scipion to run these protocols.
 
 - **Stable version**  
 
