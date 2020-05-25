@@ -26,11 +26,14 @@
 # ***************************************************************************
 
 import os
-from itertools import izip
+try:
+    from itertools import izip
+except:
+    izip = zip
 
 import pyworkflow.tests as tests
-from pyworkflow.em.data import SetOfCoordinates, SetOfMicrographs
-from pyworkflow.em.protocol import ProtImportMicrographs, ProtImportParticles
+from pwem.objects import SetOfCoordinates, SetOfMicrographs
+from pwem.protocols import ProtImportMicrographs, ProtImportParticles
 
 from emxlib.protocols import ProtEmxExport
 

@@ -31,9 +31,9 @@ from collections import OrderedDict
 
 import pyworkflow.object as pwobj
 import pyworkflow.utils as pwutils
-from pyworkflow.em.constants import ALIGN_NONE, ALIGN_PROJ, NO_INDEX
-from pyworkflow.em.convert import ImageHandler
-from pyworkflow.em.data import (Micrograph, CTFModel, Particle, 
+from pwem.constants import ALIGN_NONE, ALIGN_PROJ, NO_INDEX
+from pwem.emlib.image import ImageHandler
+from pwem.objects import (Micrograph, CTFModel, Particle,
                                 Coordinate, Transform,
                                 SetOfMicrographs, SetOfCoordinates, 
                                 SetOfParticles, Acquisition)
@@ -101,7 +101,7 @@ def _dictToEmx(emxObj, dictValues):
     """ Set values of an EMX object. 
     Key-values pairs should be provided in dictValues.
     """
-    for k, v in dictValues.iteritems():
+    for k, v in dictValues.items():
         emxObj.set(k, v)
     
             
@@ -109,10 +109,11 @@ def _ctfToEmx(emxObj, ctf):
     """ Write the CTF values in the EMX object. """
     # Divide by 10 the defocus, since we have them in A
     # and EMX wants it in nm
-    _dictToEmx(emxObj, {'defocusU': ctf.getDefocusU()/10.0,
+    emxDict = {'defocusU': ctf.getDefocusU()/10.0,
                         'defocusV': ctf.getDefocusV()/10.0,
                         'defocusUAngle': ctf.getDefocusAngle()
-                        })
+                        }
+    _dictToEmx(emxObj, emxDict)
     
     
 def _samplingToEmx(emxObj, sampling):
@@ -127,8 +128,8 @@ def _alignmentToEmx(emxObj, transform, partAlign):
         #FIXME invert only if 3D. The other direction is fixed
         if partAlign == ALIGN_PROJ:
             matrix = inv(matrix)
-        for i in range(3):
-            for j in range(4):
+        for i in list(range(3)):
+            for j in list(range(4)):
                 emxObj.set('transformationMatrix__t%d%d' % (i+1, j+1),matrix[i, j])
 
 
@@ -371,8 +372,8 @@ def _transformFromEmx(emxParticle, part, transform,alignType):
     #invert matrix
     #invert only if proj
 
-    for i in range(3):
-        for j in range(4):
+    for i in list(range(3)):
+        for j in list(range(4)):
             m[i, j] = emxParticle.get('transformationMatrix__t%d%d' % (i+1, j+1))
 
     #invert if aligment...
