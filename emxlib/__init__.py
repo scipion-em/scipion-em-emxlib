@@ -29,7 +29,7 @@ from pyworkflow.utils import Environ
 from emxlib.constants import EMXLIB_HOME
 from emxlib.utils import *
 
-
+__version__ = '3.0.1'
 _logo = "emx_logo.png"
 _references = ['Marabini2016']
 
