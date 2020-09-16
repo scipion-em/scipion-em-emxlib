@@ -29,8 +29,9 @@
 import os
 
 import pyworkflow.protocol.params as params
-from pyworkflow.em.protocol import EMProtocol, RELATION_CTF
-from pyworkflow.utils.path import join, exists
+from pwem import RELATION_CTF
+from pwem.protocols import EMProtocol
+from pyworkflow.utils import join, exists
 
 from emxlib.constants import *
 from emxlib.convert import exportData

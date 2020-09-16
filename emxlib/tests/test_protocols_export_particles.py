@@ -26,7 +26,7 @@
 import os
 
 from pyworkflow.tests import BaseTest, setupTestProject, DataSet
-from pyworkflow.em.protocol import ProtImportParticles
+from pwem.protocols import ProtImportParticles
 
 from emxlib.protocols import ProtEmxExport
 from emxlib.constants import STACK_MICS
