@@ -45,6 +45,74 @@ class ProtEmxExport(EMProtocol):
     EMX is a joint initiative for data exchange format between different
     EM software packages.
     """
+    """
+        Export micrographs, coordinates, particles, or averages into
+        EMX format for interoperability between electron microscopy
+        software packages. The protocol converts Scipion-compatible
+        datasets into standardized EMX files together with their
+        associated binary image stacks.
+
+        AI Generated:
+
+        EMX Export (ProtEmxExport) — User Manual
+
+            Overview
+
+            The EMX Export protocol allows the conversion of cryo-EM
+            datasets into the EMX exchange format, a standardized format
+            designed to facilitate interoperability between different
+            electron microscopy software packages. The protocol supports
+            the export of micrographs, particle coordinates, particles,
+            and class averages together with their associated metadata
+            and image files.
+
+            In cryo-EM workflows, EMX export is particularly useful when
+            transferring datasets between processing platforms, sharing
+            data with collaborators, or preparing standardized datasets
+            for external analysis pipelines.
+
+            Inputs and General Workflow
+
+            The protocol requires the selection of an input dataset type,
+            including micrographs, coordinates, particles, or averages.
+            Depending on the selected type, the protocol dynamically
+            adjusts the compatible input object expected from the user.
+
+            For particle datasets, users can choose whether all particles
+            should be exported into a single image stack or separated into
+            individual stacks associated with each micrograph. When
+            exporting micrographs, an optional CTF estimation set can also
+            be included in the EMX metadata.
+
+            During execution, the protocol generates an EMX metadata file
+            together with the associated binary image stacks in MRC format.
+            Users may also define a custom output prefix to control the
+            naming of the exported files.
+
+            Outputs and Interpretation
+
+            After completion, the protocol produces a standardized EMX
+            dataset containing metadata and image information compatible
+            with external cryo-EM software environments. The generated
+            files preserve the structural organization and acquisition
+            metadata required for downstream processing and data exchange.
+
+            Practical Recommendations
+
+            EMX export is particularly valuable when integrating workflows
+            across multiple cryo-EM software packages or when sharing
+            datasets between collaborators and facilities. Including CTF
+            information during export can improve compatibility with
+            downstream processing pipelines that rely on microscope
+            correction metadata.
+
+            Final Perspective
+
+            The protocol provides a practical mechanism for standardized
+            cryo-EM data exchange, helping users maintain compatibility,
+            reproducibility, and interoperability across different
+            structural biology software environments.
+        """
     _label = 'emx export'
 
     _exportTypes = ['Micrographs',
